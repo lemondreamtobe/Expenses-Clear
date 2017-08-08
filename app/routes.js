@@ -133,5 +133,11 @@ module.exports = function(app) {
 
     app.get('/home_mid.html', function (req, res) {
         res.render('../views/home_mid.html');
-    })
+    });
+    app.get('/views/register.html', function (req, res) {
+        res.render('./views/register.html');
+    });
+    app.post('/register', function (req, res) {
+        AdminCtrl.register(req, res);
+    });
 }

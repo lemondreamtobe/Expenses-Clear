@@ -144,3 +144,30 @@ var selectAll = function(callback) {
 };
 
 exports.selectAll = selectAll;
+
+exports.insertMsg = function (obj, callback) {
+    var sql = "insert into t_money set ?";
+    var obj = {
+        user : obj.username,
+        card : obj.card,
+        cash : obj.cash,
+        yct  : obj.yct
+    };
+    console.log(obj);
+    try {
+        //执行插入语句，成功返回success
+        queryWithArgs(sql, obj, function(err, rows) {
+            console.log("UserDaoInsertSuccess:" + rows);
+            if (err) {
+                console.error("UserDaoInsertError:" + err);
+                callback("error",err);
+                return;
+            }
+            callback("success");
+        });
+    } catch (er) {
+        //错误则输出异常并输出错误
+        console.error("UserDaoInsertCatchError:" + er);
+        callback(er);
+    }
+}

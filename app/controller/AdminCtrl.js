@@ -183,3 +183,42 @@ exports.manageAccount = function(req, res) {
         }
     });
 };
+
+//注册功能
+exports.register = function (req, res) {
+    var obj = {
+        username: req.body.username,
+        password: req.body.password,
+        card    : req.body.card,
+        cash    : req.body.cash,
+        yct     : req.body.yct
+    };
+    // 调用DAO层接口
+    UserDao.insert(obj, function(msg, err) {
+        if (err) {
+            if (err.errno == 1062)
+                res.status(403).json({
+                    success: '已有这个账户'
+                });
+            return;
+        }
+        console.warn("添加管理员成功");
+        //返回给客户端200成功插入反馈
+        res.status(200).json({
+            success: '添加管理员成功'
+        });
+    });
+    UserDao.insertMsg(obj, function (msg, err) {
+        if(err){
+            res.status(403).json({
+                success: '信息插入失败'
+            });
+            return;
+        }
+        console.warn("注册成功");
+        //返回给客户端200成功插入反馈
+        res.status(200).json({
+            success: '信息添加成功'
+        });
+    });
+}
