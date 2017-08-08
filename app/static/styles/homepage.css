@@ -290,3 +290,13 @@ table.no-border {
   border-radius: 1px;
   -webkit-border-radius: 1px;
 }
+.rightSide{
+    width: 200px;
+    float: right;
+    display: inline-block;
+}
+.dropdown-menu{
+    top: 184%;
+    min-width: 121px;
+    left: -75px;
+}
