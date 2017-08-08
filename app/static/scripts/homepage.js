@@ -15,4 +15,16 @@ var get = {
     getNum : $('#getNum'),
     getTime : $('#getTime'),
     getSource : $('#getSource')
-}
+};
+$('#modifyKey').on('click', function () {
+    $.gmModelDialog({
+        title: "修改密码",
+        dragEnabled: true,
+        iframeUrl: '../views/modifyKey.html',
+        width: 408,
+        height: 400
+    });
+});
+function closeDia() {
+    $.gmModelDialog("destory");
+};
