@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from condorthemes.com/cleanzone/ by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:31:31 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../picture/images/favicon.png">
+
+    <title>Clean Zone</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../lib/js/jquery.gritter/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="../lib/js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="../lib/js/bootstrap-table/bootstrap-table.css">
+  <!-- Custom styles for this template -->
+  <link href="../static/styles/style.css" rel="stylesheet" />
+    <link href="../static/styles/search.css" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Fixed navbar -->
+	<div id="cl-wrapper" class="fixed-menu">
+		<div class="container-fluid" id="pcont">
+			<div class="cl-mcont">
+				<div class="stats_bar">
+					<div class="butpro butstyle" data-step="2" data-intro="<strong>Beautiful Elements</strong> <br/> If you are looking for a different UI, this is for you!.">
+						<div class="sub"><h2>Card</h2><span id="total_clientes">3535.61</span></div>
+						<div class="stat"><span class="glyphicon glyphicon-credit-card"></span></div>
+					</div>
+					<div class="butpro butstyle">
+						<div class="sub"><h2>Cash</h2><span>1700</span></div>
+						<div class="stat"><span class="glyphicon glyphicon-usd"></span></div>
+					</div>
+					<div class="butpro butstyle">
+						<div class="sub"><h2>Yct</h2><span>102.4</span></div>
+                        <div class="stat"><span class="glyphicon glyphicon-tower"></span></div>
+					</div>
+					<div class="butpro butstyle">
+						<div class="sub"><h2>Total</h2><span>5235.61</span></div>
+                        <div class="stat"><span class="glyphicon  glyphicon-signal"></span></div>
+					</div>
+					<div class="butpro butstyle">
+						<div class="sub"><h2>Benefit</h2><span>3%</span></div>
+						<div class="stat"><span class="glyphicon glyphicon-globe"></span></div>
+					</div>
+					<div class="butpro butstyle">
+						<div class="sub"><h2>In/Out</h2><span>184</span></div>
+						<div class="stat"><span class="spk3"></span></div>
+					</div>
+				</div>
+				<div class="row dash-cols">
+					<div class="col-sm-6 col-md-6">
+					  <div class="widget-block  white-box calendar-box">
+						<div class="col-md-6 blue-box calendar no-padding">
+						  <div class="padding ui-datepicker"></div>
+						</div>
+						<div class="col-md-6">
+						  <div class="padding">
+							<h2 class="text-center" id="DateShow"></h2>
+							<h1 class="day" id="DayShow"></h1>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<div class="widget-block photo white-box weather-box">
+						<div class="col-md-6 padding photo">
+						  <h2 class="text-center" id="DateShow2"></h2>
+						  <h1 class="day" id="DayDayShow"></h1>
+						</div>
+						<div class="col-md-6 red-box">
+						  <div class="padding text-center">
+							<canvas id="sun-icon" width="130" height="215"></canvas>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<div class="seachBar">
+					<div class="interval-bottom">
+						<label class="label-interval">查询类型:</label>
+						<div class="date-left">
+							<select id="selectType" class="form-control">
+								<option value="cash">现金</option>
+								<option value="card">电子钱包</option>
+								<option value="yct">羊城通</option>
+							</select>
+						</div>
+                        <label class="label-interval">查询时间:</label>
+                        <div class="date-left">
+                            <select id="selectTime" class="form-control">
+                                <option value="1">过去一周</option>
+                                <option value="2">过去一个月</option>
+                                <option value="3">过去一段时间</option>
+                            </select>
+                        </div>
+                        <div class="time-area hidden">
+                            <label class="label-interval">开始时间:</label>
+                            <div class="date-left">
+                                <div class="input-group date form_datetime">
+                                    <input id="timeStart" class="form-control" size="16" type="text" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                            </div>
+
+                            <label class="label-interval">结束时间:</label>
+                            <div class="date-left">
+                                <div class="input-group date form_datetime">
+                                    <input id="timeEnd" class="form-control" size="16" type="text" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="btnSearch"  class="btn btn-danger btn-search pull-right">查询</button>
+					</div>
+                    <div class="interval-bottom">
+                        <label class="label-interval">金额类型:</label>
+                        <div class="date-left">
+                            <select id="costType" class="form-control">
+                                <option value="1">花费</option>
+                                <option value="2">所得</option>
+                            </select>
+                        </div>
+                    </div>
+				</div>
+                <div class="table-title">
+                    <label class="data-fontcolor" >查询列表</label>
+                </div>
+                <div class="table-container">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th data-field="time" data-align="center" style="text-align: center">时间</th>
+                            <th data-field="type" data-align="center" style="text-align: center">类型</th>
+                            <th data-field="num" data-align="center" style="text-align: center">花费</th>
+                            <th data-field="num" data-align="center" class="hidden" style="text-align: center">所得</th>
+                            <th data-field="costPurpose" data-align="center" style="text-align: center">花费明细</th>
+                            <th data-field="getSource" data-align="center" class="hidden" style="text-align: center">所得来源</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="custom-pagination">
+						<span class="total">
+							<strong id="bPageInfo"><span id="prevPagination">0</span></strong>
+						</span>
+                        <button id="pagePrev" class="btn btn-primary" disabled>上一页</button>
+                        <span class="total"><strong id="afterPagination"></strong></span>
+                        <button id="pageNext" class="btn btn-primary" disabled>下一页</button>
+                    </div>
+                </div>
+		    </div>
+		</div>
+	</div>
+  <script src="../lib/js/jquery.js"></script>
+  <script type="text/javascript" src="../lib/js/jquery.nanoscroller/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="../lib/js/behaviour/general.js"></script>
+  <script src="../lib/js/jquery.ui/jquery-ui.js" type="text/javascript"></script>
+  <script type="text/javascript" src="../lib/js/jquery.sparkline/jquery.sparkline.min.js"></script>
+  <script type="text/javascript" src="../lib/js/jquery.easypiechart/jquery.easy-pie-chart.js"></script>
+  <script type="text/javascript" src="../lib/js/jquery.nestable/jquery.nestable.js"></script>
+  <script type="text/javascript" src="../lib/js/bootstrap.switch/bootstrap-switch.min.js"></script>
+  <script type="text/javascript" src="../lib/js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript" src="../lib/js/bootstrap-table/bootstrap-table.js"></script>
+  <script src="../lib/js/jquery.select2/select2.min.js" type="text/javascript"></script>
+  <script src="../lib/js/skycons/skycons.js" type="text/javascript"></script>
+  <script src="../lib/js/bootstrap.slider/js/bootstrap-slider.js" type="text/javascript"></script>
+  <script src="../lib/js/intro.js/intro.js" type="text/javascript"></script>
+  <script src="../static/scripts/index.js"></script>
+  <script src="../lib/js/avalon.js"></script>
+
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../lib/js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../static/scripts/search.js"></script>
+  </body>
+<!-- Mirrored from condorthemes.com/cleanzone/ by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:32:27 GMT -->
+</html>

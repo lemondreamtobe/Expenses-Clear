@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/styles/login.css" rel="stylesheet" type="text/css">
+    <link href="../lib/js/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../lib/uilibs/font-awesome/css/font-awesome.min.css" />
+</head>
+<body>
+	<div id="homePage">
+		<div id="loginContainer">
+			<h2 class="login-title">Please Sign in</h2>
+			<form action="/loginData" method="post">
+				<div class="inputContainer">
+					<span class="lo">账号：</span><input type="text" name="inputUsername" id="user" class="form-control" />
+				</div>
+				<div class="inputContainer">
+					<span class="lo">密码：</span><input type="text" name="inputPassword" id="key" class="form-control" />
+				</div>
+				<div class="inputContainer inputCheckbox">
+					<input id="box" type="checkbox" /> 记住密码
+				</div>
+				<div class="inputContainer">
+					<button type="submit button" class="btn btn-info login-btn" id="login">登录</button>
+					<button type="button" class="btn btn-info login-btn" id="register">注册</button>
+				</div>
+			</form>
+		</div>
+		<div id="loginBottom">
+			<p class="bottomTitle">This project is in order to make personal expenses more clear</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="../lib/uilibs/jquery/jquery-1.12.1.min.js" ></script>
+    <script type="text/javascript" src="../lib/uilibs/gmDialog/jquery.dialog.js"></script>
+	<script type="text/javascript" src="../lib/uilibs/gmDialog/jquery.gmDialog.js" ></script>
+    <script type="text/javascript" src="../lib/uilibs/Gm/Gm.js"></script>
+	<script type="text/javascript" src="../static/scripts/login.js" ></script>
+</body>
+</html>

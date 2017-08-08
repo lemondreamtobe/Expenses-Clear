@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../images/favicon.png">
+
+    <title>expenses more clear</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+	
+    <link rel="stylesheet" href="../static/styles/homepage.css" />
+</head>
+<body>
+    <nav id="head-nav" class="navbar navbar-default" role="navigation">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    			<div class="navbar-brand">
+    				<img src="../../images/favicon.png" class="brandIMG">
+    			</div>
+    			<a class="navbar-brand">
+    				<span>Expenses Clear</span>
+    			</a>
+    		</div>
+    		<div class="navUL">
+    			<ul class="nav navbar-nav navUL">
+    				<li class="active"><a href="#">Home</a></li>
+          			<li><a href="#about">About</a></li>
+          			<li><a href="#contact">Contact</a></li>
+          			<li><a href="#business">Business</a></li>
+    			</ul>
+    		</div>
+    		<div>
+    			<span id="user">Lemon Tao <b class="caret"></b></span>
+    			<img src="../../images/avatar1_50.jpg" id="userPic">
+    		</div>
+    	</div>
+    </nav>
+    <div class="homebody">
+    	<div id="leftNav">
+    		<div class="userInfo">
+    			<div class="infoPic">
+    				<img src="../../images/avatar1_50.jpg">
+    			</div>
+    			<div class="infoSpan">
+    				<span>Lemon Tao</span>
+    			</div>
+    		</div>
+    		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   data-target="#collapseOne">
+							<i class="fa fa-home"></i><span class="littleIMG">New Pay</span>
+							<b class="caret littleIMG"></b>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="innerData">
+							<label>支出类型：</label>
+								<select id="payType" class="form-control innerControl">
+									<option value="card">card</option>
+									<option value="cash">cash</option>
+									<option value="yct">yct</option>
+								</select>
+						</div>
+						<div class="innerData">
+							<label>支出金额：</label>&nbsp;<input id="payNum" class="form-control innerControl">
+						</div>
+						<div class="innerData">
+							<label>支出目的：</label>&nbsp;<input id="payPurpose" class="form-control innerControl">
+						</div>
+						<div class="innerData">
+							<label>支出时间：</label>&nbsp;<input id="payTime" class="form-control innerControl">
+						</div>
+						<div class="innerData" style="text-align: center">
+							<button class="btn btn-info newpayBtn" id="payBtn">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   data-target="#collapseTwo">
+							<i class="fa fa-smile-o"></i><span class="littleIMG">New Get</span>
+							<b class="caret" style="margin-left: 67px;"></b>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="innerData">
+							<label>收入类型：</label>
+							<select id="getType" class="form-control innerControl">
+								<option value="card">card</option>
+								<option value="cash">cash</option>
+								<option value="yct">yct</option>
+							</select>
+						</div>
+						<div class="innerData">
+							<label>收入金额：</label>&nbsp;<input id="getNum" class="form-control innerControl">
+						</div>
+						<div class="innerData">
+							<label>收入来源：</label>&nbsp;<input id="getSource" class="form-control innerControl">
+						</div>
+						<div class="innerData">
+							<label>收入时间：</label>&nbsp;<input id="getTime" class="form-control innerControl">
+						</div>
+						<div class="innerData" style="text-align: center">
+							<button class="btn btn-info newpayBtn" id="getBtn">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+    	<div id="rightNav">
+    		
+				<iframe id="homePageRight"  src="home_mid.html" width="100%" height="100%" frameborder="0"></iframe>
+			
+    	</div>
+		<br style="clear: both">
+    </div>
+    <script type="text/javascript" src="../lib/js/jquery.js" ></script>
+    <script type="text/javascript" src="../lib/js/bootstrap/dist/js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src=../static/scripts/homepage.js></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+.seachBar{
+    width: 100%;
+    height: 127px;
+    background: #f4f5f7;
+    border: 1px solid #ccc;
+}
+.interval-bottom{
+    height: 35px;
+    margin: 21px 0px
+}
+.seachBar label {
+    width: 60px;
+    text-align: right;
+}
+
+.seachBar .label-interval {
+    /*margin-left: 20px;*/
+}
+
+.seachBar .date-left {
+    display: inline-block;
+    width: 140px;
+    vertical-align: middle;
+}
+.time-area {
+    display: inline-block;
+    width: 400px;
+}
+.input-group{
+    margin: 0px;
+}
+.btn-search {
+    width: 120px;
+    margin-right: 10px;
+}
+.table-title {
+    margin-top: 9px;
+    padding: 8px;
+    font-size: 18px;
+    background-color: #0078D7;
+    color: #fff;
+}
+.data-fontcolor {
+    color: white;
+}
+.table-container {
+    margin-top: 10px;
+}
+.custom-pagination {
+    height: 30px;
+    padding: 3px;
+    text-align: right;
+}
+.total {
+    border-color: #2e6da4;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 8px;
+}
