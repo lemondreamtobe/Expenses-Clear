@@ -96,9 +96,16 @@ Lemon.cost('card', 78, '2017 7 31', 'Buy fruit of Mango')
     .cost('card', 35, '2017 8 3', 'Bee mi')
     .cost('yct', 1.9 * 2, '2017 8 3', 'Subway')
     .cost('yct', 1.9 * 2, '2017 8 4', 'Subway')
-    .cost('cash', 34.7+28+6.5+15, '2017 8 5', 'Buy life usafes and vegetable and jianfa')
-    .cost('cash', 4, '2017 8 6', 'Traffic to study guitar')
-    .cost('cash', 4, '2017 8 7', 'Subway cos of lost yct')
+    .cost('cash', 34.7+28+6.5+15, '2017 8 5', 'Buy life usafes and vegetable and jianfa');
+Lemon.yct = 0;
+Lemon.cost('cash', 2*2, '2017 8 6', 'traffic to learn guitar')
+    .cost('cash', 2*2, '2017 8 7', 'Subway')
+    .cost('card', 68, '2017 8 7', 'buy yct')
+    .cost('card', 50, '2017 8 8', 'chongzhi yct');
+Lemon.yct = 50;
+Lemon.cost('yct', 4, '2017 8 8', 'Subway')
+    .cost('card', 3, '2017 8 8', 'stone by ice-cream')
+    .cost('yct', 4, '2017 8 9', 'Subway');
 function initTable(data) {
     //先销毁表格
     $('.table').bootstrapTable('destroy');
