@@ -20,13 +20,24 @@ $(function () {
             data: JSON.stringify(params),
             cache: false,
             error: function(evt) {
-                if (evt.status === 200 || evt.statusText === 'OK') {
-                    alert('注册并未成功！请通知管理员！')
-                }
+
             },
-
             success: function(ret) {
-
+                if (ret) {
+                    if (evt == 1000 || evt.statusText === 'OK') {
+                        alert('该帐户名已存在，请直接登录')
+                        return;
+                    } else if (evt == 0) {
+                        alert('用户异常，注册失败，请联系管理员');
+                        return;
+                    } else if (evt == 1) {
+                        alert('用户注册成功');
+                        return;
+                    }
+                } else {
+                    alert('请求失败');
+                    return;
+                }
             }
         })
     })
