@@ -3,7 +3,6 @@ var
     // model = require('../model/Model.js'),
     UserDao = require('../dao/UserDao.js'),
     md5 = require('md5');
-
 //登陆的控制器
 exports.login = function(req, res) {
     //传入response进行设置
@@ -55,6 +54,11 @@ exports.login = function(req, res) {
             console.log("登陆错误");
             // req.session.msg = '用户名或密码错误';
             // res.redirect('/error' + '?msg=用户名或密码错误');
+            // res.json({
+            //     ret : 1000,
+            //     msg : '登陆错误！用户名或密码不正确'
+            // });
+            // res.redirect('/login');
             res.render('error',{
                 msg: '登陆错误！用户名或密码不正确',
                 link: '/'

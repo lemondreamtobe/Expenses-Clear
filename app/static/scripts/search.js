@@ -69,17 +69,21 @@ $(function () {
         });
     initTable();
     $('#btnSearch').on('click', onSearch);
-    parent.pay.payBtn.on('click', function () {
-        var type = parent.pay.payType.val();
-        var num = parent.pay.payNum.val();
-        var costPurpose = parent.pay.payPurpose.val();
-        var time = parent.pay.payTime.val();
-        Lemon.cost(type, num, time, costPurpose);
-        parent.pay.payNum.val("");
-        parent.pay.payPurpose.val("");
-        parent.pay.payTime.val("");
-        alert("success");
-    });
+    /*
+      xie 2017 8 17
+     */
+
+    // parent.pay.payBtn.on('click', function () {
+    //     var type = parent.pay.payType.val();
+    //     var num = parent.pay.payNum.val();
+    //     var costPurpose = parent.pay.payPurpose.val();
+    //     var time = parent.pay.payTime.val();
+    //     Lemon.cost(type, num, time, costPurpose);
+    //     parent.pay.payNum.val("");
+    //     parent.pay.payPurpose.val("");
+    //     parent.pay.payTime.val("");
+    //     alert("success");
+    // });
 });
 var Lemon = new PersonalFiance({
     card : 4071.61,

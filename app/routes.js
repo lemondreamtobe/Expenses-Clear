@@ -126,7 +126,7 @@ module.exports = function(app) {
         AdminCtrl.addAdmin(req, res);
     });
 
-    //添加管理员
+    //修改密码
     app.post('/manageAccount', function(req, res) {
         AdminCtrl.manageAccount(req, res);
     });
@@ -135,9 +135,30 @@ module.exports = function(app) {
         res.render('../views/home_mid.html');
     });
     app.get('/views/register.html', function (req, res) {
-        res.render('./views/register.html');
+        res.render('../views/register.html');
     });
+    app.get("/views/modifyKey.html", function (req, res) {
+        res.render('../views/modifyKey.html');
+    })
     app.post('/register', function (req, res) {
         AdminCtrl.register(req, res);
     });
+    app.post('/initMsg', function (req, res) {
+        if (!req.session.Admin_id) {
+            res.redirect('/login');
+        }
+        console.log("----------信息初始化检测session:");
+        console.log("sessionID" + req.session.Admin_id);
+        console.log("sessionName" + req.session.Admin_name);
+        AdminCtrl.initMsg(req.session.Admin_name, res);
+    });
+    app.post('/input', function (req, res) {
+        AdminCtrl.input(req, res);
+    });
+    app.post('/use', function (req, res) {
+        AdminCtrl.use(req, res);
+    });
+    app.post('/search', function (req, res) {
+        AdminCtrl.search(req, res);
+    })
 }

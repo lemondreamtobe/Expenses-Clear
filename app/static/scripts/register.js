@@ -22,15 +22,15 @@ $(function () {
             error: function(evt) {
 
             },
-            success: function(ret) {
-                if (ret) {
-                    if (evt == 1000 || evt.statusText === 'OK') {
+            success: function(data) {
+                if (data) {
+                    if (data.ret == 1000) {
                         alert('该帐户名已存在，请直接登录')
                         return;
-                    } else if (evt == 0) {
+                    } else if (data.ret == 0) {
                         alert('用户异常，注册失败，请联系管理员');
                         return;
-                    } else if (evt == 1) {
+                    } else if (data.ret == 1) {
                         alert('用户注册成功');
                         return;
                     }
