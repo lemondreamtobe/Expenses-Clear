@@ -16,8 +16,8 @@ var pool = mysql.createPool(DBconfig);
 var getConnection = function(success, fail) {
     pool.getConnection(function(err, connection) {
         if (err) {
-            fail(err, connection);
-            console.log("与MySQL数据库建立连接失败");
+            // fail(err, connection);
+             console.log("与MySQL数据库建立连接失败");
         } else {
             success(connection);
             console.log("与MySQL数据库建立连接成功");

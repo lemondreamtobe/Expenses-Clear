@@ -1,6 +1,6 @@
 var config = require('./config.js'),
     BookTypeDao = require('../dao/BookTypeDao.js'),
-    BookDao = require('../dao/BookDao.js'),
+    moneyDao = require('../dao/moneyDao.js'),
     UserDao = require("../dao/UserDao.js"),
     md5 = require('md5');
 
@@ -70,7 +70,7 @@ exports.addBook = function(req, res) {
     };
     // console.log(obj);
     // 调用DAO层接口
-    BookDao.insert(obj, function() {
+    moneyDao.insert(obj, function() {
         console.warn("添加书籍类别成功");
         //返回给客户端200成功插入反馈
         res.status(200).json({
@@ -81,7 +81,7 @@ exports.addBook = function(req, res) {
 
 //查看全部书籍
 exports.seeAllBook = function(req, res) {
-    BookDao.selectAll(function(rows) {
+    moneyDao.selectAll(function(rows) {
         res.status(200).json(rows);
     });
 };
@@ -90,7 +90,7 @@ exports.seeAllBook = function(req, res) {
 exports.updateBook = function(req, res) {
     var obj = req.body;
     console.log(obj);
-    BookDao.modify(obj, function() {
+    moneyDao.modify(obj, function() {
         res.status(200).json({
             success: '修改书籍类别成功'
         });
@@ -102,7 +102,7 @@ exports.updateBook = function(req, res) {
 exports.deleteBook = function(req, res) {
     //接受url传递的删除类别的id值
     var id = req.params.id;
-    BookDao.deleteOne(id, function() {
+    moneyDao.deleteOne(id, function() {
         res.status(200).json({
             success: '删除书籍类别成功'
         });;
@@ -167,10 +167,12 @@ exports.manageAccount = function(req, res) {
             UserDao.modify(obj, function(msg, err) {
                 if (err) {
                     res.status(403).json({
+                        ret    : 1001,
                         success: '账号或密码错误'
                     });
                 }
                 res.status(200).json({
+                    ret    : 0,
                     success: '修改成功'
 
                 });
@@ -178,47 +180,161 @@ exports.manageAccount = function(req, res) {
 
         } else {
             res.status(403).json({
+                ret    : 1000,
                 success: '找不到用户'
             });
         }
     });
 };
 
+
+global.flag = false;
+
 //注册功能
 exports.register = function (req, res) {
+    global.flag = false;
     var obj = {
         username: req.body.username,
         password: req.body.password,
         card    : req.body.card,
         cash    : req.body.cash,
-        yct     : req.body.yct
+        yct     : req.body.yct,
+        total   : parseFloat(req.body.card) + parseFloat(req.body.cash) + parseFloat(req.body.yct)
     };
     // 调用DAO层接口
     UserDao.insert(obj, function(msg, err) {
         if (err) {
             if (err.errno == 1062)
-                res.status(403).json({
+                res.status(200).json({
+                    ret    : 1000,
                     success: '已有这个账户'
+                })
+           // global.flag = true;
+            return ;
+        }
+        UserDao.insertMsg(obj, function (msg, err) {
+            if (err) {
+                res.status(200).json({
+                    ret    : 0,
+                    success: '信息插入失败'
                 });
-            return;
-        }
-        console.warn("添加管理员成功");
-        //返回给客户端200成功插入反馈
-        res.status(200).json({
-            success: '添加管理员成功'
-        });
-    });
-    UserDao.insertMsg(obj, function (msg, err) {
-        if(err){
-            res.status(403).json({
-                success: '信息插入失败'
+                return;
+            }
+            console.warn("注册成功");
+            //返回给客户端200成功插入反馈
+            res.status(200).json({
+                ret: 1,
+                success: '信息添加成功'
             });
-            return;
-        }
-        console.warn("注册成功");
-        //返回给客户端200成功插入反馈
-        res.status(200).json({
-            success: '信息添加成功'
         });
+        console.warn("添加用户成功");
+        return ;
+        //返回给客户端200成功插入反馈
+        // res.status(200).json({
+        //     success: '添加用户成功'
+        // });
+    });
+}
+
+//个人信息初始化
+exports.initMsg = function (req, res) {
+    moneyDao.selectMsg(req, function(rows) {
+        res.status(200).json(rows);
+    });
+}
+
+//添加收入
+exports.input = function (req ,res) {
+    var obj = {
+        username: req.session.Admin_name,
+        type    : req.body.type,
+        money   : req.body.money,
+        // card    : req.body.card,
+        // cash    : req.body.cash,
+        // yct     : req.body.yct,
+        purpose : req.body.purpose,
+        date    : req.body.date,
+        symbol  : req.body.symbol
+    };
+    moneyDao.addinput(obj, function (msg, err) {
+        if(msg =='error?'){
+            res.status(200).json({
+               ret : 0,
+               msg : '请输入值???'
+            });
+        }else if(msg =="success"){
+            res.status(200).json({
+                ret : 1,
+                msg : '插入成功'
+            });
+        }else if(err){
+            res.status(200).json({
+                ret : 2,
+                msg : '插入失败'
+            });
+        }
+    });
+}
+
+//添加支出
+exports.use = function (req ,res) {
+    var obj = {
+        username: req.session.Admin_name,
+        type    : req.body.type,
+        money   : req.body.money,
+        // card    : req.body.card,
+        // cash    : req.body.cash,
+        // yct     : req.body.yct,
+        purpose : req.body.purpose,
+        date    : req.body.date,
+        symbol  : req.body.symbol
+    };
+    moneyDao.adduse(obj, function (msg, err) {
+        if(msg =='error?'){
+            res.status(200).json({
+                ret : 0,
+                msg : '请输入值???'
+            });
+        }else if(msg =="success"){
+            res.status(200).json({
+                ret : 1,
+                msg : '插入成功'
+            });
+        }else if(err){
+            res.status(200).json({
+                ret : 2,
+                msg : '插入失败'
+            });
+        }
+    });
+}
+
+//查询
+exports.search = function (req, res) {
+    var obj = {
+        username: req.session.Admin_name,
+        type : req.body.type,
+        startTime : req.body.startTime,
+        endTime   : req.body.endTime,
+        symbol: req.body.symbol
+    };
+    moneyDao.addsearch(obj, function (msg, rows) {
+        if(msg =='error?'){
+            res.status(200).json({
+                ret : 0,
+                msg : '请输入值???'
+            });
+        }else if(msg =="success"){
+            res.status(200).json({
+                rows : rows,
+                ret : 1,
+                msg : '查询成功'
+            });
+        }else if(err){
+            res.status(200).json({
+                ret : 2,
+                msg : '查询失败'
+            });
+        }
     });
 }

@@ -3,7 +3,7 @@ var connection = require('../db/connection');
 var queryWithArgs = connection.queryWithArgs;
 var query = connection.query;
 var md5 = require('md5');
-
+var AdminCtrl = require('../controller/AdminCtrl');
 /*
              输入       输出
 insert       User       信息
@@ -13,8 +13,12 @@ selectAll    无         [User]
 selectOne    User.id    User
  */
 
-
-/**
+/*
+* 定义一个标志位
+* */
+var symbol = false;
+exports.symbol = symbol;
+/*
  * 插入用户
  * @param  {User}   	user     传入的User类
  * @param  {Function} 	callback 回调函数，执行如callback("success");或者callback(er);
@@ -26,13 +30,13 @@ var insert = function(user, callback) {
         Admin_name:user.username,
         Admin_password:md5(user.password)    //用MD5加密用户密码
     };
-    console.log(obj);
+    console.log('用户插入',obj);
     try {
         //执行插入语句，成功返回success
         queryWithArgs(sql, obj, function(err, rows) {
-            console.log("UserDaoInsertSuccess:" + rows);
+            console.log("UserInsertSuccess:" + rows);
             if (err) {
-                console.error("UserDaoInsertError:" + err);
+                console.error("UserInsertError:" + err);
                 callback("error",err);
                 return;
             }
@@ -40,7 +44,7 @@ var insert = function(user, callback) {
         });
     } catch (er) {
         //错误则输出异常并输出错误
-        console.error("UserDaoInsertCatchError:" + er);
+        console.error("UserInsertCatchError:" + er);
         callback(er);
     }
 };
@@ -151,15 +155,17 @@ exports.insertMsg = function (obj, callback) {
         user : obj.username,
         card : obj.card,
         cash : obj.cash,
-        yct  : obj.yct
+        yct  : obj.yct,
+        date : obj.date||new Date(),
+        total: obj.total
     };
-    console.log(obj);
+    console.log('信息插入', obj);
     try {
         //执行插入语句，成功返回success
         queryWithArgs(sql, obj, function(err, rows) {
-            console.log("UserDaoInsertSuccess:" + rows);
+            console.log("UserMsgInsertSuccess:" + rows);
             if (err) {
-                console.error("UserDaoInsertError:" + err);
+                console.error("UserMsgInsertError:" + err);
                 callback("error",err);
                 return;
             }
@@ -167,7 +173,7 @@ exports.insertMsg = function (obj, callback) {
         });
     } catch (er) {
         //错误则输出异常并输出错误
-        console.error("UserDaoInsertCatchError:" + er);
+        console.error("UserMsgInsertCatchError:" + er);
         callback(er);
     }
 }
