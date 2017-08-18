@@ -99,15 +99,15 @@
 								<option value="yct">羊城通</option>
 							</select>
 						</div>
-                        <label class="label-interval">查询时间:</label>
-                        <div class="date-left">
+                        <label class="label-interval hidden">查询时间:</label>
+                        <div class="date-left hidden">
                             <select id="selectTime" class="form-control">
                                 <option value="1">过去一周</option>
                                 <option value="2">过去一个月</option>
                                 <option value="3">过去一段时间</option>
                             </select>
                         </div>
-                        <div class="time-area hidden">
+                        <div class="time-area">
                             <label class="label-interval">开始时间:</label>
                             <div class="date-left">
                                 <div class="input-group date form_datetime">
@@ -131,7 +131,7 @@
                         <div class="date-left">
                             <select id="costType" class="form-control">
                                 <option value="1">花费</option>
-                                <option value="2">所得</option>
+                                <option value="0">所得</option>
                             </select>
                         </div>
                     </div>
@@ -143,23 +143,23 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th data-field="time" data-align="center" style="text-align: center">时间</th>
-                            <th data-field="type" data-align="center" style="text-align: center">类型</th>
-                            <th data-field="num" data-align="center" style="text-align: center">花费</th>
+                            <th data-field="date" data-formatter="setdate" data-align="center" style="text-align: center">时间</th>
+                            <th data-field="symbol" data-formatter ="sym" data-align="center" style="text-align: center">类型</th>
+                            <th data-field="money" data-align="center" style="text-align: center">金钱</th>
                             <th data-field="num" data-align="center" class="hidden" style="text-align: center">所得</th>
-                            <th data-field="costPurpose" data-align="center" style="text-align: center">花费明细</th>
+                            <th data-field="purpose" data-align="center" style="text-align: center">明细</th>
                             <th data-field="getSource" data-align="center" class="hidden" style="text-align: center">所得来源</th>
                         </tr>
                         </thead>
                     </table>
-                    <div class="custom-pagination">
-						<span class="total">
-							<strong id="bPageInfo"><span id="prevPagination">0</span></strong>
-						</span>
-                        <button id="pagePrev" class="btn btn-primary" disabled>上一页</button>
-                        <span class="total"><strong id="afterPagination"></strong></span>
-                        <button id="pageNext" class="btn btn-primary" disabled>下一页</button>
-                    </div>
+                    <!--<div class="custom-pagination">-->
+						<!--<span class="total">-->
+							<!--<strong id="bPageInfo"><span id="prevPagination">0</span></strong>-->
+						<!--</span>-->
+                        <!--<button id="pagePrev" class="btn btn-primary" disabled>上一页</button>-->
+                        <!--<span class="total"><strong id="afterPagination"></strong></span>-->
+                        <!--<button id="pageNext" class="btn btn-primary" disabled>下一页</button>-->
+                    <!--</div>-->
                 </div>
 		    </div>
 		</div>
@@ -188,7 +188,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../lib/js/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../static/scripts/init.js"></script>
-    <script src="../static/scripts/search.js"></script>
+
+
+    <script src="../static/scripts/returnSearch.js"></script>
   </body>
 <!-- Mirrored from condorthemes.com/cleanzone/ by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:32:27 GMT -->
 </html>

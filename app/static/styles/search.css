@@ -19,12 +19,12 @@
 
 .seachBar .date-left {
     display: inline-block;
-    width: 140px;
+    width: 180px;
     vertical-align: middle;
 }
 .time-area {
     display: inline-block;
-    width: 400px;
+    width: 510px;
 }
 .input-group{
     margin: 0px;
