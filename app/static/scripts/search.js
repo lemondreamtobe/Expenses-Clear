@@ -45,30 +45,30 @@ $(function () {
                 $('#DateShow2').html('星期六');
                 break;
         }
-        function initTime() {
-            //时间范围
-            $(".form_datetime").datetimepicker({
-                format: "yyyy-mm-dd", // hh:ii:ss
-                language: "zh-CN",
-                autoclose: true,
-                todayBtn: 'linked',
-                todayHighlight: true,
-                pickerPosition: 'bottom-left',
-                minView: 'month'
-            });
-        };
+        // function initTime() {
+        //     //时间范围
+        //     $(".form_datetime").datetimepicker({
+        //         format: "yyyy-mm-dd", // hh:ii:ss
+        //         language: "zh-CN",
+        //         autoclose: true,
+        //         todayBtn: 'linked',
+        //         todayHighlight: true,
+        //         pickerPosition: 'bottom-left',
+        //         minView: 'month'
+        //     });
+        // };
         $('#DayShow').html(date.getDate());
         $('#DayDayShow').html(date.getFullYear() + ' ' + (date.getMonth() + 1) + ' ' + date.getDate());
-        $('#selectTime').change(function() {
-            if($(this).val() == "3") {
-                $('.time-area').removeClass('hidden');
-                initTime();
-            } else {
-                $('.time-area').addClass('hidden');
-            }
-        });
-    initTable();
-    $('#btnSearch').on('click', onSearch);
+        // $('#selectTime').change(function() {
+        //     if($(this).val() == "3") {
+        //         $('.time-area').removeClass('hidden');
+        //         initTime();
+        //     } else {
+        //         $('.time-area').addClass('hidden');
+        //     }
+        // });
+    // initTable();
+    // $('#btnSearch').on('click', onSearch);
     /*
       xie 2017 8 17
      */
@@ -146,8 +146,8 @@ function onSearch() {
         case "3":
             var timeS = $('#timeStart').val() + ' 00:00:00';
             var timeE = $('#timeEnd').val() + ' 23:59:59';
-            beginTime = +new Date(timeS);
-            endTime = +new Date(timeE);
+            // beginTime = +new Date(timeS);
+            // endTime = +new Date(timeE);
             break;
     }
 

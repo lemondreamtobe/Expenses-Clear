@@ -25,6 +25,16 @@ $('#modifyKey').on('click', function () {
         height: 400
     });
 });
+//时间范围
+$(".form_datetime").datetimepicker({
+    format: "yyyy-mm-dd hh:ii", // hh:ii:ss
+    language: "zh-CN",
+    autoclose: true,
+    todayBtn: 'linked',
+    todayHighlight: true,
+    pickerPosition: 'bottom-left'
+    //minView: 'month'
+});
 $("#payBtn").on("click", use);
 $("#getBtn").on("click", input);
 function closeDia() {

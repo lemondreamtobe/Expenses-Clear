@@ -196,7 +196,7 @@ var addinput = function (obj, callback) {
             var sql = "insert into t_card set ?";
             var insertobj ={
                 user : obj.username,
-                card :  obj.money,
+                money :  obj.money,
                 purpose : obj.purpose,
                 date    : obj.date||new Date(),
                 symbol  : obj.symbol
@@ -239,7 +239,7 @@ var addinput = function (obj, callback) {
             var sql = "insert into t_cash set ?";
             var insertobj ={
                 user : obj.username,
-                cash : obj.money,
+                money : obj.money,
                 purpose : obj.purpose,
                 date    : obj.date||new Date(),
                 symbol  : obj.symbol
@@ -282,7 +282,7 @@ var addinput = function (obj, callback) {
             var sql = "insert into t_yct set ?";
             var insertobj ={
                 user : obj.username,
-                yct : obj.money,
+                money : obj.money,
                 purpose : obj.purpose,
                 date    : obj.date||new Date(),
                 symbol  : obj.symbol
@@ -335,7 +335,7 @@ var adduse = function (obj, callback) {
            var sql = "insert into t_card set ?";
            var insertobj ={
                user : obj.username,
-               card :  obj.money,
+               money :  obj.money,
                purpose : obj.purpose,
                date    : obj.date||new Date(),
                symbol  : obj.symbol
@@ -378,7 +378,7 @@ var adduse = function (obj, callback) {
            var sql = "insert into t_cash set ?";
            var insertobj ={
                user : obj.username,
-               cash : obj.money,
+               money : obj.money,
                purpose : obj.purpose,
                date    : obj.date||new Date(),
                symbol  : obj.symbol
@@ -421,7 +421,7 @@ var adduse = function (obj, callback) {
            var sql = "insert into t_yct set ?";
            var insertobj ={
                user : obj.username,
-               yct : obj.money,
+               money : obj.money,
                purpose : obj.purpose,
                date    : obj.date||new Date(),
                symbol  : obj.symbol
@@ -453,7 +453,7 @@ exports.adduse = adduse;
 
 var addsearch = function (obj, callback) {
     if(obj.type == "card"){
-        var sql = "select * form t_card where date between '"+obj.startTime+"' and '"+obj.endTime+"' and uer = '"+obj.username+"' and symbol = '"+obj.symbol+"'";
+        var sql = "select * from t_card where date between '"+obj.startTime+"' and '"+obj.endTime+"'and user = '"+obj.username+"' and symbol = "+obj.symbol;
         try {
             //执行插入语句，成功返回success
             query(sql, function(err, rows) {
@@ -470,7 +470,8 @@ var addsearch = function (obj, callback) {
         }
     }else if(obj.type == "cash"){
 
-        var sql = "select * form t_cash where date between '"+obj.startTime+"' and '"+obj.endTime+"' and uer = '"+obj.username+"' and symbol = '"+obj.symbol+"'";
+        var sql = "select * from t_cash where date between '" + obj.startTime + "' and '" + obj.endTime + "' and user = '"+ obj.username + "' and symbol =" + obj.symbol;
+        console.log(sql);
         try {
             //执行插入语句，成功返回success
             query(sql, function(err, rows) {
@@ -488,7 +489,8 @@ var addsearch = function (obj, callback) {
 
     }else if(obj.type == "yct"){
 
-        var sql = "select * form t_yct where date between '"+obj.startTime+"' and '"+obj.endTime+"' and uer = '"+obj.username+"' and symbol = '"+obj.symbol+"'";
+        var sql = "select * from t_yct where date between '"+obj.startTime+"' and '"+obj.endTime+"' and user = '"+obj.username+"' and symbol = "+obj.symbol;
+        console.log(sql);
         try {
             //执行插入语句，成功返回success
             query(sql, function(err, rows) {

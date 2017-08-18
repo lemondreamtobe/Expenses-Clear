@@ -8,9 +8,9 @@
     <link rel="shortcut icon" href="../../images/favicon.png">
 
     <title>expenses more clear</title>
-    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link  type="text/css" rel="stylesheet" href="../lib/uilibs/bootstrap-3.3.5/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
-	
+	<link rel="stylesheet" type="text/css" href="../lib/js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="../static/styles/homepage.css" />
 </head>
 <body>
@@ -91,7 +91,11 @@
 							<label>支出目的：</label>&nbsp;<input type="text" id="payPurpose" class="form-control innerControl">
 						</div>
 						<div class="innerData">
-							<label>支出时间：</label>&nbsp;<input type="text" id="payTime" class="form-control innerControl">
+							<label>支出时间：</label>&nbsp;
+							<div class="date-left" style="display: inline-block;width: 142px;margin-left:-4px; vertical-align: middle;">
+								<input id="payTime" class="form-control form_datetime" size="16" type="text" readonly>
+							</div>
+							<!--<input type="text" id="payTime" class="form-control innerControl">-->
 						</div>
 						<div class="innerData" style="text-align: center">
 							<button class="btn btn-info newpayBtn" id="payBtn">确定</button>
@@ -126,7 +130,10 @@
 							<label>收入来源：</label>&nbsp;<input type="text" id="getSource" class="form-control innerControl">
 						</div>
 						<div class="innerData">
-							<label>收入时间：</label>&nbsp;<input type="text" id="getTime" class="form-control innerControl">
+							<label>收入时间：</label>
+							<div class="date-left" style="display: inline-block;width: 142px; vertical-align: middle;">
+								<input id="getTime" class="form-control form_datetime" size="16" type="text" readonly>
+							</div>
 						</div>
 						<div class="innerData" style="text-align: center">
 							<button class="btn btn-info newpayBtn" id="getBtn">确定</button>
@@ -146,6 +153,7 @@
     <script type="text/javascript" src="../lib/uilibs/gmDialog/jquery.dialog.js"></script>
     <script type="text/javascript" src="../lib/uilibs/gmDialog/jquery.gmDialog.js" ></script>
     <script type="text/javascript" src="../lib/js/bootstrap/dist/js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="../lib/js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 	<script type="text/javascript" src=../static/scripts/homepage.js></script>
 </body>
 </html>
